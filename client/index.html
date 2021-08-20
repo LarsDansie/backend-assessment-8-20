@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <button id="complimentButton">Get a compliment</button>
+    
+    <button id="fortuneBtn">OooOOOooo FoRTuuuNeeee!~</button>
+    
+    <form>
+      <input 
+          type='text'
+          id="username"
+          placeholder="What is your username?"/>
+      <input 
+          type='text'
+          id="password"
+          placeholder='What is your password?'/>
+      <input 
+          type='text'
+          id="profilePic"
+          placeholder='Paste an image URL for your profile pic'/>
+      <button>Create Profile</button>
+
+  </form>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios.get("http://localhost:4000/api/compliment/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+    </script>
+    <script>
+      document.getElementById("fortuneBtn").onClick = function () {
+        axios.get("http://localhost:4000/api/fortune/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
